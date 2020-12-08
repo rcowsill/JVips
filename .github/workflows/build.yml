@@ -17,9 +17,9 @@ jobs:
       - name: Cache Docker layers
         uses: rcowsill/action-docker-layer-caching@debug/more-logging-release
         with:
-          cache-key: Linux-docker-layers-{hash}
+          key: Linux-docker-layers-v2-{hash}
           restore-keys: |
-             Linux-docker-layers-
+             Linux-docker-layers-v2-
 
       - name: Build Docker builder image
         run: docker build --build-arg UID=$(id -u) --build-arg GID=$(id -g) -f .github/docker/linux/Dockerfile -t builder .
